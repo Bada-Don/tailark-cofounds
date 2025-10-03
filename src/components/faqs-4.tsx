@@ -7,37 +7,37 @@ export default function FAQsFour() {
     const faqItems = [
         {
             id: 'item-1',
-            question: 'How long does shipping take?',
-            answer: 'Standard shipping takes 3-5 business days, depending on your location. Express shipping options are available at checkout for 1-2 business day delivery.',
+            question: 'What is Cofounds?',
+            answer: "Cofounds is a modern job search companion for tracking, discovering, and applying to jobs — powered by a community and proof of work.",
         },
         {
             id: 'item-2',
-            question: 'What payment methods do you accept?',
-            answer: 'We accept all major credit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, and Google Pay. For enterprise customers, we also offer invoicing options.',
+            question: 'Is Cofounds free to use?',
+            answer: 'Yes. There is a free tier with core features, and premium plans are available for advanced options.',
         },
         {
             id: 'item-3',
-            question: 'Can I change or cancel my order?',
-            answer: 'You can modify or cancel your order within 1 hour of placing it. After this window, please contact our customer support team who will assist you with any changes.',
+            question: 'How is Cofounds different from LinkedIn or job boards?',
+            answer: 'Cofounds focuses on your entire job search journey with community insights, application tracking, and skill-based matching — not just listings.',
         },
         {
             id: 'item-4',
-            question: 'Do you ship internationally?',
-            answer: "Yes, we ship to over 50 countries worldwide. International shipping typically takes 7-14 business days. Additional customs fees may apply depending on your country's import regulations.",
+            question: 'Do I need to create an account?',
+            answer: 'Yes. An account enables a personalized experience, lets you save preferences, and syncs your progress across devices.',
         },
         {
             id: 'item-5',
-            question: 'What is your return policy?',
-            answer: 'We offer a 30-day return policy for most items. Products must be in original condition with tags attached. Some specialty items may have different return terms, which will be noted on the product page.',
+            question: 'Is my data safe with Cofounds?',
+            answer: 'We do not sell user data. We use enterprise-grade security and do not send recruiter spam.',
         },
     ]
 
     return (
-        <section className="py-16 md:py-24">
+        <section id="faqs" className="py-16 md:py-24">
             <div className="mx-auto max-w-5xl px-4 md:px-6">
                 <div className="mx-auto max-w-xl text-center">
-                    <h2 className="text-balance text-3xl font-bold md:text-4xl lg:text-5xl">Frequently Asked Questions</h2>
-                    <p className="text-muted-foreground mt-4 text-balance">Discover quick and comprehensive answers to common questions about our platform, services, and features.</p>
+                    <h2 className="text-balance text-3xl font-bold md:text-4xl lg:text-5xl">Your Questions, Our Answers</h2>
+                    <p className="text-muted-foreground mt-4 text-balance">Quick, clear answers about Cofounds and how it helps you get hired faster.</p>
                 </div>
 
                 <div className="mx-auto mt-12 max-w-xl">
@@ -63,11 +63,14 @@ export default function FAQsFour() {
                     </Accordion>
 
                     <p className="text-muted-foreground mt-6 px-8">
-                        Can't find what you're looking for? Contact our{' '}
+                        Want to talk to us? Join our{' '}
                         <Link
-                            href="#"
-                            className="text-primary font-medium hover:underline">
-                            customer support team
+                            href="https://chat.whatsapp.com/FUo2MVMuvSKKsbJwoIldW3"
+                            className="text-primary font-medium hover:underline"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            WhatsApp community
                         </Link>
                     </p>
                 </div>

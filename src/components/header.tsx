@@ -1,21 +1,61 @@
 'use client'
 import Link from 'next/link'
-import { Logo } from '@/components/logo'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Moon, Sun } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import { cn } from '@/lib/utils'
 
 const menuItems = [
-    { name: 'Features', href: '#link' },
-    { name: 'Solution', href: '#link' },
-    { name: 'Pricing', href: '#link' },
-    { name: 'About', href: '#link' },
+    { name: 'Why Cofounds', href: '#why' },
+    { name: 'FAQs', href: '#faqs' },
+    { name: 'Contact', href: '#contact' },
+    { name: 'Join Community', href: 'https://chat.whatsapp.com/FUo2MVMuvSKKsbJwoIldW3' },
 ]
 
 export const HeroHeader = () => {
     const [menuState, setMenuState] = React.useState(false)
     const [isScrolled, setIsScrolled] = React.useState(false)
+    const [theme, setTheme] = React.useState<'light' | 'dark'>(() => {
+        if (typeof window === 'undefined') return 'light'
+        return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+    })
+
+    React.useEffect(() => {
+        if (typeof window === 'undefined') return
+        const stored = localStorage.getItem('theme')
+        let next: 'light' | 'dark' = 'light'
+        if (stored === 'dark' || stored === 'light') {
+            next = stored
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            next = 'dark'
+        }
+        setTheme(next)
+        document.documentElement.classList.toggle('dark', next === 'dark')
+
+        if (!stored && window.matchMedia) {
+            const mq = window.matchMedia('(prefers-color-scheme: dark)')
+            const handler = (e: MediaQueryListEvent) => {
+                const t: 'light' | 'dark' = e.matches ? 'dark' : 'light'
+                setTheme(t)
+                document.documentElement.classList.toggle('dark', t === 'dark')
+            }
+            if (typeof mq.addEventListener === 'function') mq.addEventListener('change', handler)
+            else mq.addListener(handler)
+            return () => {
+                if (typeof mq.removeEventListener === 'function') mq.removeEventListener('change', handler)
+                else mq.removeListener(handler)
+            }
+        }
+    }, [])
+
+    const toggleTheme = () => {
+        const next = theme === 'dark' ? 'light' : 'dark'
+        setTheme(next)
+        if (typeof document !== 'undefined') {
+            document.documentElement.classList.toggle('dark', next === 'dark')
+            try { localStorage.setItem('theme', next) } catch {}
+        }
+    }
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -36,7 +76,7 @@ export const HeroHeader = () => {
                                 href="/"
                                 aria-label="home"
                                 className="flex items-center space-x-2">
-                                <Logo />
+                                <span className="font-semibold text-lg">CoFounds</span>
                             </Link>
 
                             <button
@@ -49,12 +89,15 @@ export const HeroHeader = () => {
                         </div>
 
                         <div className="absolute inset-0 m-auto hidden size-fit lg:block">
-                            <ul className="flex gap-8 text-sm">
+                            <ul className="flex items-center gap-6 text-sm">
                                 {menuItems.map((item, index) => (
                                     <li key={index}>
                                         <Link
                                             href={item.href}
-                                            className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                            className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                                            target={item.href.startsWith('http') ? '_blank' : undefined}
+                                            rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                        >
                                             <span>{item.name}</span>
                                         </Link>
                                     </li>
@@ -69,7 +112,10 @@ export const HeroHeader = () => {
                                         <li key={index}>
                                             <Link
                                                 href={item.href}
-                                                className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                                                target={item.href.startsWith('http') ? '_blank' : undefined}
+                                                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                            >
                                                 <span>{item.name}</span>
                                             </Link>
                                         </li>
@@ -78,28 +124,22 @@ export const HeroHeader = () => {
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                                 <Button
-                                    asChild
+                                    type="button"
                                     variant="outline"
                                     size="sm"
-                                    className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
-                                        <span>Login</span>
-                                    </Link>
-                                </Button>
-                                <Button
-                                    asChild
-                                    size="sm"
-                                    className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
-                                        <span>Sign Up</span>
-                                    </Link>
+                                    onClick={toggleTheme}
+                                    aria-label="Toggle theme"
+                                    className={cn(isScrolled && 'lg:hidden')}
+                                >
+                                    {theme === 'dark' ? <Sun className="size-4" /> : <Moon className="size-4" />}
+                                    <span className="sr-only">Toggle theme</span>
                                 </Button>
                                 <Button
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="#">
-                                        <span>Get Started</span>
+                                    <Link href="https://chat.whatsapp.com/FUo2MVMuvSKKsbJwoIldW3" target="_blank" rel="noopener noreferrer">
+                                        <span>Join Community</span>
                                     </Link>
                                 </Button>
                             </div>

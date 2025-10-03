@@ -4,6 +4,7 @@ import WallOfLoveSection from "@/components/testimonials";
 import TeamSection from "@/components/team";
 import FAQsFour from "@/components/faqs-4";
 import FooterSection from "@/components/footer";
+import NewsletterSection from "@/components/newsletter";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <WallOfLoveSection />
       <TeamSection />
       <FAQsFour />
+      <NewsletterSection />
       <FooterSection />
     </>
   );
