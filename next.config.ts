@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    // Allow images from all sources by disabling optimization (removes domain restrictions)
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -26,6 +28,14 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "alt.tailus.io",
+      },
+      {
+        protocol: "https",
+        hostname: "saaslandingpage.com",
+      },
+      {
+        protocol: "https",
+        hostname: "randomuser.me",
       },
     ],
   },

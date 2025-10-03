@@ -136,27 +136,26 @@ export default function HeroSection() {
                                         },
                                         ...transitionVariants,
                                     }}
-                                    className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
-                                    <div
+                                    className="mt-12 flex flex-row items-center justify-center gap-3">
+                                    <Button
                                         key={1}
-                                        className="bg-foreground/10 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5">
-                                        <Button
-                                            asChild
-                                            size="lg"
-                                            className="rounded-xl px-5 text-base">
-                                            <Link href="/auth">
-                                                <span className="text-nowrap">Get started</span>
-                                            </Link>
-                                        </Button>
-                                    </div>
+                                        asChild
+                                        size="lg"
+                                        className="rounded-lg px-6 text-base"
+                                    >
+                                        <Link href="/auth">
+                                            <span className="whitespace-nowrap">Get started</span>
+                                        </Link>
+                                    </Button>
                                     <Button
                                         key={2}
                                         asChild
                                         size="lg"
-                                        variant="ghost"
-                                        className="h-10.5 rounded-xl px-5">
+                                        variant="outline"
+                                        className="rounded-lg px-6"
+                                    >
                                         <Link href="/auth">
-                                            <span className="text-nowrap">Onboard Your Company</span>
+                                            <span className="whitespace-nowrap">Onboard Your Company</span>
                                         </Link>
                                     </Button>
                                 </AnimatedGroup>
