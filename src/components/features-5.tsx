@@ -40,8 +40,8 @@ export default function FeaturesSection() {
                     </div>
                     <div className="border-border/50 relative rounded-3xl border p-3 lg:col-span-3">
                         <div className="bg-linear-to-b aspect-76/59 relative rounded-2xl from-zinc-300 to-transparent p-px dark:from-zinc-700">
-                            <Image src="https://images.unsplash.com/photo-1551281044-8b5790c66d3a?auto=format&fit=crop&w=1207&q=80" className="hidden rounded-[15px] dark:block" alt="illustration dark" width={1207} height={929} />
-                            <Image src="https://images.unsplash.com/photo-1611162618071-b39a2ec8f6b1?auto=format&fit=crop&w=1207&q=80" className="rounded-[15px] shadow dark:hidden" alt="illustration light" width={1207} height={929} />
+                            <Image src="https://saaslandingpage.com/wp-content/uploads/2023/08/13-storm-dark-landing-page-template@2x.png" className="hidden rounded-[15px] dark:block" alt="illustration dark" width={1207} height={929} />
+                            <Image src="https://saaslandingpage.com/wp-content/uploads/2023/08/13-storm-dark-landing-page-template@2x.png" className="rounded-[15px] shadow dark:hidden invert" alt="illustration light" width={1207} height={929} />
                         </div>
                     </div>
                 </div>

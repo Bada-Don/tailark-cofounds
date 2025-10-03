@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-import { ArrowRight, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { TextEffect } from '@/components/ui/text-effect'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { HeroHeader } from './header'
+import type { Variants } from 'motion/react'
 
 const transitionVariants = {
     item: {
@@ -19,13 +19,13 @@ const transitionVariants = {
             filter: 'blur(0px)',
             y: 0,
             transition: {
-                type: 'spring',
+                type: 'spring' as const,
                 bounce: 0.3,
                 duration: 1.5,
             },
         },
     },
-}
+} as const satisfies { item: Variants }
 
 export default function HeroSection() {
     return (
@@ -84,24 +84,24 @@ export default function HeroSection() {
                         <div className="mx-auto max-w-7xl px-6">
                             <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
                                 <AnimatedGroup variants={transitionVariants}>
-                                    <div className="bg-muted dark:hover:border-t-border group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-zinc-950/5 transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950">
-                                        <span className="text-foreground text-sm">Backed by</span>
-                                        <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
+                                    <div className="group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md transition-colors duration-300 bg-white/80 border-zinc-200 text-zinc-700 dark:bg-white/80 dark:border-zinc-200 dark:text-zinc-700">
+                                        <span className="text-zinc-700 text-sm">Backed by</span>
+                                        <span className="block h-4 w-0.5 bg-zinc-300"></span>
                                         <div className="flex items-center gap-3 pr-3">
-                                            {/* Google 'G' placeholder */}
-                                            <span className="inline-flex items-center gap-2 text-sm">
-                                                <svg width="16" height="16" viewBox="0 0 256 256" aria-hidden>
-                                                    <path fill="#4285F4" d="M130 104v48h67c-3 18-20 52-67 52c-40 0-72-33-72-74s32-74 72-74c23 0 39 10 48 19l33-32C198 22 167 8 130 8C62 8 8 62 8 130s54 122 122 122c70 0 116-49 116-118c0-8-1-14-2-20z"/>
-                                                </svg>
-                                                <span className="sr-only">Google for Startups</span>
-                                                <span className="text-xs text-muted-foreground">Google for Startups</span>
-                                            </span>
-                                            {/* Notion placeholder */}
-                                            <span className="inline-flex items-center gap-2 text-sm">
-                                                <span className="inline-flex size-5 items-center justify-center rounded border font-bold">N</span>
-                                                <span className="sr-only">Notion</span>
-                                                <span className="text-xs text-muted-foreground">Notion</span>
-                                            </span>
+                                            <Image
+                                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Google_for_Startups_logo.svg/2560px-Google_for_Startups_logo.svg.png"
+                                                alt="Google for Startups"
+                                                width={140}
+                                                height={18}
+                                                className="h-4 w-auto"
+                                            />
+                                            <Image
+                                                src="https://i0.wp.com/get.site/wp-content/uploads/2021/10/notion-logo.png?ssl=1"
+                                                alt="Notion"
+                                                width={28}
+                                                height={28}
+                                                className="h-5 w-auto"
+                                            />
                                         </div>
                                     </div>
                                 </AnimatedGroup>
@@ -144,8 +144,8 @@ export default function HeroSection() {
                                             asChild
                                             size="lg"
                                             className="rounded-xl px-5 text-base">
-                                            <Link href="https://chat.whatsapp.com/FUo2MVMuvSKKsbJwoIldW3" target="_blank" rel="noopener noreferrer">
-                                                <span className="text-nowrap">Join Community</span>
+                                            <Link href="/auth">
+                                                <span className="text-nowrap">Get started</span>
                                             </Link>
                                         </Button>
                                     </div>
@@ -155,8 +155,8 @@ export default function HeroSection() {
                                         size="lg"
                                         variant="ghost"
                                         className="h-10.5 rounded-xl px-5">
-                                        <Link href="#faqs">
-                                            <span className="text-nowrap">Read FAQs</span>
+                                        <Link href="/auth">
+                                            <span className="text-nowrap">Onboard Your Company</span>
                                         </Link>
                                     </Button>
                                 </AnimatedGroup>
@@ -183,10 +183,10 @@ export default function HeroSection() {
                                         alt="app screen"
                                         width="2700"
                                         height="1440"
-                                    />
+                                        />
                                     <Image
-                                        className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden"
-                                        src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=2700&q=80"
+                                        className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden invert"
+                                        src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=2700&q=80"
                                         alt="app screen"
                                         width="2700"
                                         height="1440"
@@ -199,18 +199,22 @@ export default function HeroSection() {
                 <section className="bg-background pb-16 pt-16 md:pb-32">
                     <div className="relative m-auto max-w-5xl px-6">
                         <div className="text-center">
-                            <span className="text-muted-foreground text-sm">Backed by</span>
+                            <span className="text-zinc-600 text-sm">Backed by</span>
                             <div className="mt-6 flex items-center justify-center gap-10">
-                                <span className="inline-flex items-center gap-2">
-                                    <svg width="24" height="24" viewBox="0 0 256 256" aria-hidden>
-                                        <path fill="#4285F4" d="M130 104v48h67c-3 18-20 52-67 52c-40 0-72-33-72-74s32-74 72-74c23 0 39 10 48 19l33-32C198 22 167 8 130 8C62 8 8 62 8 130s54 122 122 122c70 0 116-49 116-118c0-8-1-14-2-20z"/>
-                                    </svg>
-                                    <span className="text-sm">Google for Startups</span>
-                                </span>
-                                <span className="inline-flex items-center gap-2">
-                                    <span className="inline-flex size-6 items-center justify-center rounded border font-bold">N</span>
-                                    <span className="text-sm">Notion</span>
-                                </span>
+                                <Image
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Google_for_Startups_logo.svg/2560px-Google_for_Startups_logo.svg.png"
+                                    alt="Google for Startups"
+                                    width={200}
+                                    height={24}
+                                    className="h-6 w-auto"
+                                />
+                                <Image
+                                    src="https://i0.wp.com/get.site/wp-content/uploads/2021/10/notion-logo.png?ssl=1"
+                                    alt="Notion"
+                                    width={36}
+                                    height={36}
+                                    className="h-7 w-auto"
+                                />
                             </div>
                         </div>
                     </div>

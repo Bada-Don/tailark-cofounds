@@ -16,7 +16,7 @@ export default function NewsletterSection() {
     <section id="contact" className="py-16 md:py-24">
       <div className="mx-auto max-w-xl px-6 text-center">
         <span className="text-xs tracking-wider text-muted-foreground">SUBSCRIBE TO OUR NEWSLETTER</span>
-        <h3 className="mt-3 text-2xl font-semibold md:text-3xl">Subscribe to stay tuned for new web design and latest updates. Let's do it!</h3>
+        <h3 className="mt-3 text-2xl font-semibold md:text-3xl">Subscribe to stay tuned for new web design and latest updates. Let&apos;s do it!</h3>
 
         <form onSubmit={onSubmit} className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
           <input
@@ -30,7 +30,7 @@ export default function NewsletterSection() {
           <Button type="submit" className="px-6">Subscribe</Button>
         </form>
         {submitted ? (
-          <p className="text-muted-foreground mt-3 text-sm">Thanks for subscribing! We'll be in touch.</p>
+          <p className="text-muted-foreground mt-3 text-sm">Thanks for subscribing! We&apos;ll be in touch.</p>
         ) : null}
       </div>
     </section>

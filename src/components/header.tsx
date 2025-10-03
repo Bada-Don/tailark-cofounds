@@ -138,8 +138,8 @@ export const HeroHeader = () => {
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="https://chat.whatsapp.com/FUo2MVMuvSKKsbJwoIldW3" target="_blank" rel="noopener noreferrer">
-                                        <span>Join Community</span>
+                                    <Link href="/auth">
+                                        <span>Get started</span>
                                     </Link>
                                 </Button>
                             </div>

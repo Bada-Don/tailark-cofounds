@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const members = [
     {
@@ -58,12 +59,12 @@ export default function TeamSection() {
                             <div
                                 key={index}
                                 className="group overflow-hidden">
-                                <img
+                                <Image
                                     className="h-96 w-full rounded-md object-cover object-top grayscale transition-all duration-500 hover:grayscale-0 group-hover:h-[22.5rem] group-hover:rounded-xl"
                                     src={member.avatar}
                                     alt="team member"
-                                    width="826"
-                                    height="1239"
+                                    width={826}
+                                    height={1239}
                                 />
                                 <div className="px-2 pt-2 sm:pb-0 sm:pt-4">
                                     <div className="flex justify-between">
