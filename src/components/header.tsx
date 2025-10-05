@@ -1,9 +1,10 @@
 'use client'
 import Link from 'next/link'
-import { Menu, X, Moon, Sun } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import { cn } from '@/lib/utils'
+import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler'
 
 const menuItems = [
     { name: 'Why Cofounds', href: '#why' },
@@ -15,11 +16,8 @@ const menuItems = [
 export const HeroHeader = () => {
     const [menuState, setMenuState] = React.useState(false)
     const [isScrolled, setIsScrolled] = React.useState(false)
-    const [theme, setTheme] = React.useState<'light' | 'dark'>(() => {
-        if (typeof window === 'undefined') return 'light'
-        return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
-    })
 
+    // Ensure initial theme respects stored preference or system preference
     React.useEffect(() => {
         if (typeof window === 'undefined') return
         const stored = localStorage.getItem('theme')
@@ -29,33 +27,8 @@ export const HeroHeader = () => {
         } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             next = 'dark'
         }
-        setTheme(next)
         document.documentElement.classList.toggle('dark', next === 'dark')
-
-        if (!stored && window.matchMedia) {
-            const mq = window.matchMedia('(prefers-color-scheme: dark)')
-            const handler = (e: MediaQueryListEvent) => {
-                const t: 'light' | 'dark' = e.matches ? 'dark' : 'light'
-                setTheme(t)
-                document.documentElement.classList.toggle('dark', t === 'dark')
-            }
-            if (typeof mq.addEventListener === 'function') mq.addEventListener('change', handler)
-            else mq.addListener(handler)
-            return () => {
-                if (typeof mq.removeEventListener === 'function') mq.removeEventListener('change', handler)
-                else mq.removeListener(handler)
-            }
-        }
     }, [])
-
-    const toggleTheme = () => {
-        const next = theme === 'dark' ? 'light' : 'dark'
-        setTheme(next)
-        if (typeof document !== 'undefined') {
-            document.documentElement.classList.toggle('dark', next === 'dark')
-            try { localStorage.setItem('theme', next) } catch {}
-        }
-    }
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -123,17 +96,12 @@ export const HeroHeader = () => {
                                 </ul>
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                                <Button
-                                    type="button"
-                                    variant="outline"
-                                    size="sm"
-                                    onClick={toggleTheme}
-                                    aria-label="Toggle theme"
-                                    className={cn(isScrolled && 'lg:hidden')}
-                                >
-                                    {theme === 'dark' ? <Sun className="size-4" /> : <Moon className="size-4" />}
-                                    <span className="sr-only">Toggle theme</span>
-                                </Button>
+                                <AnimatedThemeToggler
+                                    className={cn(
+                                        'inline-flex items-center justify-center rounded-md text-sm transition-all border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-8 px-3',
+                                        isScrolled && 'lg:hidden'
+                                    )}
+                                />
                                 <Button
                                     asChild
                                     size="sm"
