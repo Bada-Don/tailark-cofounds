@@ -6,6 +6,7 @@ import { TextEffect } from '@/components/ui/text-effect'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { HeroHeader } from './header'
 import type { Variants } from 'motion/react'
+import { Highlighter } from '@/components/ui/highlighter'
 
 const transitionVariants = {
     item: {
@@ -106,14 +107,29 @@ export default function HeroSection() {
                                     </div>
                                 </AnimatedGroup>
 
-                                <TextEffect
-                                    per="line"
-                                    preset="fade-in-blur"
-                                    speedSegment={0.3}
-                                    as="h1"
-                                    className="mx-auto mt-8 max-w-4xl text-balance text-5xl max-md:font-semibold md:text-7xl lg:mt-16 xl:text-[5.25rem]">
-                                    {`Hiring is Broken\nWe are here to fix it!`}
-                                </TextEffect>
+                                <h1 className="mx-auto mt-8 max-w-4xl text-balance text-5xl max-md:font-semibold md:text-7xl lg:mt-16 xl:text-[5.25rem]">
+                                    <TextEffect
+                                        per="word"
+                                        preset="fade-in-blur"
+                                        speedSegment={0.3}
+                                        as="span"
+                                        className="inline-block"
+                                    >
+                                        {"Hiring is"}
+                                    </TextEffect>{" "}
+                                    <Highlighter action="highlight" color="#ff110067">Broken</Highlighter>
+                                    <br />
+                                    <TextEffect
+                                        per="line"
+                                        preset="fade-in-blur"
+                                        speedSegment={0.3}
+                                        delay={0.5}
+                                        as="span"
+                                        className="inline-block"
+                                    >
+                                        {"We are here to fix it!"}
+                                    </TextEffect>
+                                </h1>
                                 <TextEffect
                                     per="line"
                                     preset="fade-in-blur"
