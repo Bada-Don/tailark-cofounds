@@ -196,40 +196,40 @@ export default function HeroSection() {
                         </div>
 
                         <AnimatedGroup
-                            variants={{
-                                container: {
-                                    visible: {
-                                        transition: {
-                                            staggerChildren: 0.05,
-                                            delayChildren: 0.75,
-                                        },
-                                    },
-                                },
-                                ...transitionVariants,
-                            }}>
-                            <div className="mask-b-from-55% relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
-                                <div className="ring-background dark:inset-shadow-2xs dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
-                                    <iframe
-                                        className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border w-full hidden dark:block"
-                                        src="https://www.youtube.com/embed/aSte18D2_YE?autoplay=1&mute=1&controls=0&loop=1&playlist=aSte18D2_YE&modestbranding=1&rel=0&playsinline=1"
-                                        title="Hero video (dark)"
-                                        allow="autoplay; encrypted-media; picture-in-picture"
-                                        loading="lazy"
-                                        referrerPolicy="strict-origin-when-cross-origin"
-                                        allowFullScreen
-                                    />
-                                    <iframe
-                                        className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border w-full dark:hidden"
-                                        src="https://www.youtube.com/embed/ZK-rNEhJIDs?autoplay=1&mute=1&controls=0&loop=1&playlist=ZK-rNEhJIDs&modestbranding=1&rel=0&playsinline=1"
-                                        title="Hero video (light)"
-                                        allow="autoplay; encrypted-media; picture-in-picture"
-                                        loading="lazy"
-                                        referrerPolicy="strict-origin-when-cross-origin"
-                                        allowFullScreen
-                                    />
-                                </div>
-                            </div>
-                        </AnimatedGroup>
+    variants={{
+        container: {
+            visible: {
+                transition: {
+                    staggerChildren: 0.05,
+                    delayChildren: 0.75,
+                },
+            },
+        },
+        ...transitionVariants,
+    }}>
+    <div className="mask-b-from-55% relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
+        <div className="ring-background dark:inset-shadow-2xs dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
+            <iframe
+                className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border w-full hidden dark:block"
+                src="https://www.youtube.com/embed/aSte18D2_YE?autoplay=1&mute=1&controls=0&loop=1&playlist=aSte18D2_YE&modestbranding=1&rel=0&playsinline=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=0"
+                title="Hero video (dark)"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+            />
+            <iframe
+                className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border w-full dark:hidden"
+                src="https://www.youtube.com/embed/ZK-rNEhJIDs?autoplay=1&mute=1&controls=0&loop=1&playlist=ZK-rNEhJIDs&modestbranding=1&rel=0&playsinline=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=0"
+                title="Hero video (light)"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+            />
+        </div>
+    </div>
+</AnimatedGroup>
                     </div>
                 </section>
                 <LogoCloud />
