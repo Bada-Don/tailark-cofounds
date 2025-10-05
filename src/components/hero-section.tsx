@@ -11,8 +11,8 @@ const transitionVariants = {
     item: {
         hidden: {
             opacity: 0,
-            filter: 'blur(12px)',
-            y: 12,
+            filter: 'blur(4px)',
+            y: 8,
         },
         visible: {
             opacity: 1,
@@ -20,8 +20,8 @@ const transitionVariants = {
             y: 0,
             transition: {
                 type: 'spring' as const,
-                bounce: 0.3,
-                duration: 1.5,
+                bounce: 0.1,
+                duration: 1,
             },
         },
     },
