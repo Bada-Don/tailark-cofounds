@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -29,6 +30,8 @@ const transitionVariants = {
 } as const satisfies { item: Variants }
 
 export default function HeroSection() {
+    const [showBrokenHighlight, setShowBrokenHighlight] = React.useState(false)
+
     return (
         <>
             <HeroHeader />
@@ -117,18 +120,20 @@ export default function HeroSection() {
                                     >
                                         {"Hiring is"}
                                     </TextEffect>{" "}
-                                    <Highlighter action="highlight" color="#ff000069">
+                                    {!showBrokenHighlight ? (
                                         <TextEffect
                                             per="word"
                                             preset="fade-in-blur"
                                             speedSegment={0.3}
-                                            delay={0.1}
                                             as="span"
                                             className="inline-block"
+                                            onAnimationComplete={() => setShowBrokenHighlight(true)}
                                         >
                                             {"Broken"}
                                         </TextEffect>
-                                    </Highlighter>
+                                    ) : (
+                                        <Highlighter action="highlight" color="#ff00008c">{"Broken"}</Highlighter>
+                                    )}
                                     <br />
                                     <TextEffect
                                         per="line"
@@ -203,19 +208,13 @@ export default function HeroSection() {
                             }}>
                             <div className="mask-b-from-55% relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
                                 <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
-                                    <Image
-                                        className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block"
-                                        src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=2700&q=80"
-                                        alt="app screen"
-                                        width="2700"
-                                        height="1440"
-                                        />
-                                    <Image
-                                        className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden invert"
-                                        src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=2700&q=80"
-                                        alt="app screen"
-                                        width="2700"
-                                        height="1440"
+                                    <iframe
+                                        className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border w-full"
+                                        src="https://www.youtube.com/embed/aSte18D2_YE?autoplay=1&mute=1&controls=0&loop=1&playlist=aSte18D2_YE&modestbranding=1&rel=0&playsinline=1"
+                                        title="Hero video"
+                                        allow="autoplay; encrypted-media; picture-in-picture"
+                                        referrerPolicy="strict-origin-when-cross-origin"
+                                        allowFullScreen
                                     />
                                 </div>
                             </div>
