@@ -126,3 +126,7 @@ html.theme-init, html.theme-init * {
   transition: none !important;
   animation: none !important;
 }
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
