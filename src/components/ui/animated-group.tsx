@@ -105,7 +105,6 @@ function AnimatedGroup({
   className,
   variants,
   preset,
-  as = 'div',
   asChild = 'div',
 }: AnimatedGroupProps) {
   const selectedVariants = {
