@@ -8,6 +8,7 @@ import { AnimatedGroup } from '@/components/ui/animated-group'
 import { HeroHeader } from './header'
 import type { Variants } from 'motion/react'
 import { Highlighter } from '@/components/ui/highlighter'
+import LogoCloud from '@/components/logo-cloud'
 
 const transitionVariants = {
     item: {
@@ -231,29 +232,7 @@ export default function HeroSection() {
                         </AnimatedGroup>
                     </div>
                 </section>
-                <section className="bg-background pb-16 pt-16 md:pb-32">
-                    <div className="relative m-auto max-w-5xl px-6">
-                        <div className="text-center">
-                            <span className="text-zinc-600 text-sm">Backed by</span>
-                            <div className="mt-6 flex items-center justify-center gap-10">
-                                <Image
-                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Google_for_Startups_logo.svg/2560px-Google_for_Startups_logo.svg.png"
-                                    alt="Google for Startups"
-                                    width={200}
-                                    height={24}
-                                    className="h-6 w-auto"
-                                />
-                                <Image
-                                    src="https://i0.wp.com/get.site/wp-content/uploads/2021/10/notion-logo.png?ssl=1"
-                                    alt="Notion"
-                                    width={36}
-                                    height={36}
-                                    className="h-7 w-auto"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <LogoCloud />
             </main>
         </>
     )
