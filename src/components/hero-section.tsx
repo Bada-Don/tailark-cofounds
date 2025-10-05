@@ -117,7 +117,18 @@ export default function HeroSection() {
                                     >
                                         {"Hiring is"}
                                     </TextEffect>{" "}
-                                    <Highlighter action="highlight" color="#ff110067">Broken</Highlighter>
+                                    <Highlighter action="highlight" color="#ff000069">
+                                        <TextEffect
+                                            per="word"
+                                            preset="fade-in-blur"
+                                            speedSegment={0.3}
+                                            delay={0.1}
+                                            as="span"
+                                            className="inline-block"
+                                        >
+                                            {"Broken"}
+                                        </TextEffect>
+                                    </Highlighter>
                                     <br />
                                     <TextEffect
                                         per="line"
