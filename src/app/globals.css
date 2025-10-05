@@ -120,3 +120,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Prevent theme flash and jank during initial theme determination */
+html.theme-init, html.theme-init * {
+  transition: none !important;
+  animation: none !important;
+}
