@@ -8,33 +8,33 @@ export default function FeaturesSection() {
                 <div className="grid items-center gap-12 md:grid-cols-2 md:gap-12 lg:grid-cols-5 lg:gap-24">
                     <div className="lg:col-span-2">
                         <div className="md:pr-6 lg:pr-0">
-                            <h2 className="text-4xl font-semibold lg:text-5xl">Why CoFounds Delivers Results — Not Just Listings.</h2>
-                            <p className="mt-6">A smarter, community-driven way to get hired. Built for speed, proof, and clarity.</p>
+                            <h2 className="text-4xl font-semibold lg:text-5xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+                            <p className="mt-6">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                         <ul className="mt-8 divide-y border-y *:flex *:items-center *:gap-3 *:py-3">
                             <li>
                                 <Zap className="size-5" />
-                                Apply Smarter, Not Harder — curated roles and precise application tools.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             </li>
                             <li>
                                 <Activity className="size-5" />
-                                Always in Sync — track saved jobs, status updates, and notes across devices.
+                                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             </li>
                             <li>
                                 <DraftingCompass className="size-5" />
-                                Personalized Job Discovery — smart suggestions aligned with your goals.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
                             </li>
                             <li>
                                 <Mail className="size-5" />
-                                Built for Job Seekers — more than a job board, focused on your journey.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse.
                             </li>
                             <li>
                                 <Image src="/window.svg" alt="users" width={16} height={16} className="dark:invert" />
-                                Community-Driven Advantage — referrals, shared opportunities, and insights.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa.
                             </li>
                             <li>
                                 <Image src="/file.svg" alt="shield" width={16} height={16} className="dark:invert" />
-                                Privacy-First by Design — we don’t resell your data or spam you.
+                                Nisi ut aliquip ex ea commodo consequat.
                             </li>
                         </ul>
                     </div>
